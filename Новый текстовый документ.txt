@@ -1,0 +1,3 @@
+cd c:\xampp\htdocs\Popova\Laravel\newsportal
+
+php artisan serve
