@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\CategoryConroller;
-use app\Models\Category; ////////////////////////////////??????????????
+use app\Models\Category;
+use app\Models\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,11 @@ Route::post('/addcategory','CategoryController@store');
 Route::get('/editcategory/{category}','CategoryController@edit');
 Route::post('/editcategory/{category}','CategoryController@update');
 Route::delete('/categorylist/{category}','CategoryController@destroy');
+//task list CRUD
+Route::get('/newslist','TaskController@index');
+Route::get('/addtask','TaskController@create');
+Route::post('/addtask','TaskController@store');
+Route::get('/detail/{task}','TaskController@show');
+Route::get('/edittask/{task}','TaskController@edit');
+Route::post('/edittask/{task}','TaskController@update');
+Route::delete('/delete/{task}','TaskController@destroy');
