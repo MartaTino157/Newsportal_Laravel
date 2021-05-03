@@ -36,6 +36,7 @@
 				<?php 
 					$tasks = App\Models\Task::where('categoryId', $categoryOne->id)->orderBy('updated_at', 'desc')->get();
 				?>
+				@if (count($tasks ?? '') > 0)
 				@foreach ($tasks as $task)
 				<div class="panel panel-default">
 					<div class="panel-body">
@@ -61,6 +62,9 @@
 				</div>
 				@endforeach
 				<p><strong>Всего новостей: </strong>{{count($tasks)}}</p>
+			@else
+				<p>По запросу новостей не найдено</p>
+			@endif
 			</div>
 		</div>
 	</div>
