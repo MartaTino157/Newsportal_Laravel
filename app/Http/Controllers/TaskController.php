@@ -114,4 +114,13 @@ class TaskController extends Controller
         $task->delete();
         return redirect('/newslist');
     }
+    public function listLimit()
+    {
+        $tasks = Task::orderBy('created_at', 'desc')->take(3)->get();
+        return view('start', compact('tasks'));
+    }
+    public function detail(Task $task)
+    {
+        return view('tasks.detail', compact('task'));
+    }
 }

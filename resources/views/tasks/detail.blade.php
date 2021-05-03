@@ -9,12 +9,9 @@
 	<div class="row">
 		<div class="col-lg-12 margin-tb">
 			<div class="pull-left">
-				<h2>
-					
-				</h2>
+				<h3> {{$task->title}}</h3>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-primary" href="/newslist" title="Go back"><i class="fa fa-backward"></i></a>
 			</div>
 		</div>
 	</div>
@@ -28,32 +25,20 @@
 		</div>
 		<div class="col-sm-8">
 			<div class="form-group">
-				<strong>Title: </strong> {{$task->title}}
+				{{$task->description}}
 			</div>
 			<div class="form-group">
-				<strong>Description: </strong> {{$task->description}}
+				<i><strong>Category: </strong> <?php echo $categoryname; ?></i>
 			</div>
 			<div class="form-group">
-				<strong>Category: </strong> <?php echo $categoryname; ?>
-			</div>
-			<div class="form-group">
-				<i>Date update: {{$task->updated_at->format('d.m.Y')}}</i>
+				<i><strong>Date update: </strong>{{$task->updated_at->format('d.m.Y')}}</i>
 			</div>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-sm-12">
-			<form action="{{url('delete/' . $task->id)}}" method="POST">
-				<a href="{{url('edittask/' . $task->id)}}" title="edit" type="button" class="btn btn-default">
-					<i class="fa fa-btn fa-edit"></i>Edit
-				</a>
-				{{ csrf_field() }}
-				{{ method_field('DELETE') }}
-				<button type="submit" title="delete" class="btn btn-default">
-					<i class="fa fa-btn fa-trash"></i>Delete
-				</button>
-			</form>
+			<a href="{{url('/news')}}" title="Go back" type="button" class="btn btn-default">Back to list</a>
 		</div>
 	</div>
 </div>

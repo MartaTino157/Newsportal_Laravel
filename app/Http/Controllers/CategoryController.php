@@ -52,7 +52,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $categoryOne = $category;
+        return view('categories.news_categoryId', compact('categoryOne'));
     }
 
     /**
@@ -92,5 +93,11 @@ class CategoryController extends Controller
     {
         $category->delete();
         return redirect('/categorylist');
+    }
+
+    public function listMenu()
+    {
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('categories.news_category', compact('categories'));
     }
 }

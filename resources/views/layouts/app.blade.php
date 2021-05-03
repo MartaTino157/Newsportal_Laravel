@@ -11,18 +11,6 @@
 	<!-- Styles -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href='{{ asset("css/style.css") }}' rel="stylesheet">
-	<style>
-		.footer {
-			display: flex;
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: 60px;
-			background-color: #f5f5f5;
-			align-items: center;
-			text-align: center;
-		}
-	</style>
 </head>
 <body id="app-layout">
 	<nav class="navbar navbar-default">

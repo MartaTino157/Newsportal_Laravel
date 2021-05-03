@@ -15,10 +15,11 @@ use app\Models\Task;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('start');
-});
+/*Открытие обычной страницы*/
+// Route::get('/', function () {
+//     return view('start');
+// });
+Route::get('/', 'TaskController@listLimit');
 
 //categorylist CRUD
 Route::get('/categorylist','CategoryController@index');
@@ -34,3 +35,8 @@ Route::get('/detail/{task}','TaskController@show');
 Route::get('/edittask/{task}','TaskController@edit');
 Route::post('/edittask/{task}','TaskController@update');
 Route::delete('/delete/{task}','TaskController@destroy');
+//--------------
+Route::get('/detail/{task}','TaskController@detail');
+//menu
+Route::get('/news','CategoryController@listMenu');
+Route::get('/categorynews/{category}','CategoryController@show');

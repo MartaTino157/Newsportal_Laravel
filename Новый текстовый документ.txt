@@ -1,3 +1,5 @@
 cd c:\xampp\htdocs\Popova\Laravel\newsportal
 
 php artisan serve
+
+cd C:\xampp\htdocs\JKTVR19\Newsportal_Laravel
