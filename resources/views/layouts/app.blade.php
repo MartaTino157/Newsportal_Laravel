@@ -23,15 +23,26 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<!-- Meny ссылки-->
-				<a class="navbar-brand" href="{{ url('/') }}"> Home</a>
-				<a class="navbar-brand" href="{{ url('/news') }}"> News</a>
-				<a class="navbar-brand" href="{{ url('/categorylist') }}">Categories(CRUD) </a>
-				<a class="navbar-brand" href="{{ url('/newslist') }}">News list(CRUD) </a>
 			</div>
 			<div class="collapse navbar-collapse" id="app-navbar-collapse">
 				<!-- Left Side Of Navbar -->
 				<ul class="nav navbar-nav">
+					<li>
+						<a class="navbar-brand" href="{{ url('/') }}"> Home</a>
+					</li>
+					<li>
+						<a class="navbar-brand" href="{{ url('/news') }}"> News</a>
+					</li>
+					@if(Gate::allows('isAdmin'))
+					<li>
+						<a class="navbar-brand" href="{{ url('/categorylist') }}">Categories(CRUD) </a>
+					</li>
+					@endif
+					@if(Gate::allows('isAdmin') || Gate::allows('isManager'))
+					<li>
+						<a class="navbar-brand" href="{{ url('/newslist') }}">News list(CRUD) </a>
+					</li>
+					@endif
 				</ul>
 				<!-- Right Side Of Navbar -->
 				<ul class="nav navbar-nav navbar-right">

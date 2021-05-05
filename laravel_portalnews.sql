@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 03 2021 г., 12:53
+-- Время создания: Май 05 2021 г., 15:04
 -- Версия сервера: 10.4.18-MariaDB
 -- Версия PHP: 8.0.3
 
@@ -41,7 +41,8 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (9, 'Образование', '2020-12-23', '2020-12-23'),
 (10, 'Медицина', '2020-12-23', '2020-12-23'),
-(11, 'Политика', '2020-12-23', '2020-12-23');
+(11, 'Политика', '2020-12-23', '2020-12-23'),
+(13, 'test', '2021-05-03', '2021-05-03');
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,13 @@ CREATE TABLE `comments` (
   `created_at` date NOT NULL,
   `updated_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `body`, `user_id`, `task_id`, `created_at`, `updated_at`) VALUES
+(4, 'First comment', 8, 21, '2021-05-05', '2021-05-05');
 
 -- --------------------------------------------------------
 
@@ -104,10 +112,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `role`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'admin@news.ee', '$2y$12$mjv/GPng4oQFohhkPl8RPucmgRDFVs/UCVP02US.r92ra09kK4d7u', 'admin', 'admin', '2021-01-08', '2021-01-08'),
-(2, 'manager@news.ee', '$2y$12$mjv/GPng4oQFohhkPl8RPucmgRDFVs/UCVP02US.r92ra09kK4d7u', 'manager', 'manager', '2021-01-08', '2021-01-08'),
-(3, 'user2@news.ee', '$2y$12$mjv/GPng4oQFohhkPl8RPucmgRDFVs/UCVP02US.r92ra09kK4d7u', 'user', 'user2', '2021-01-08', '2021-01-08'),
-(4, 'user1@news.ee', '$2y$12$mjv/GPng4oQFohhkPl8RPucmgRDFVs/UCVP02US.r92ra09kK4d7u', 'user', 'user1', '2021-01-08', '2021-01-08');
+(6, 'admin@news.ee', '$2y$10$rj54J0u4wcUtVAEy/teQH.n4R8Zmk7m.1XxC/HdJMbhxxXnfgpg4u', 'admin', 'admin', '2021-05-05', '2021-05-05'),
+(7, 'manager@news.ee', '$2y$10$a9GcHhiDbbAarBBD1si2huene4cXDj4N8Z6xlfmM9rGIwQ.WoYQeG', 'manager', 'manager', '2021-05-05', '2021-05-05'),
+(8, 'user1@news.ee', '$2y$10$bWhllffTUcAD8MgjLcmP8.Aw.VslV.cQqFaJiyqdebSzNu7V5PQeK', 'user', 'user1', '2021-05-05', '2021-05-05'),
+(9, 'user2@news.ee', '$2y$10$htN/4JoG.M2ZZpMW0f1Veu4e2QnTuTDiRxhYI8Robp4SmwNf0X9Mm', 'user', 'user2', '2021-05-05', '2021-05-05');
 
 --
 -- Индексы сохранённых таблиц
@@ -150,13 +158,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `tasks`
@@ -168,7 +176,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

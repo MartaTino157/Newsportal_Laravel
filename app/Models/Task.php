@@ -18,4 +18,8 @@ class Task extends Model
     	'categoryId',
     	'created_at'
     ];
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }
