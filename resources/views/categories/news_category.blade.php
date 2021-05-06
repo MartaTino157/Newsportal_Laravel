@@ -54,6 +54,10 @@
 									<i><strong>Date update: </strong>{{$task->updated_at->format('d.m.Y')}}</i>
 								</div>
 								<a href="{{url('detail/' . $task->id)}}" type="button" class="btn btn-default">Подробнее</a>
+								<?php 
+									$commentsNews=App\Http\Controllers\CommentsController::commentsCount($task->id);
+								?>
+								<p class="commentscount"><span class="spancomment">Comments count: </span>{{$commentsNews}}</p>
 							</div>
 						</div>
 					</div>

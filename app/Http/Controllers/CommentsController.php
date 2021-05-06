@@ -50,6 +50,11 @@ class CommentsController extends Controller
         }
         return redirect('/detail/'.$task->id);
     }
+    public function commentsCount($id) {
+        $commentsByTask = Comment::where('task_id',$id)->get(); //все комменты к новости
+        $commentsCount = count($commentsByTask);
+        return $commentsCount;
+    }
 
     /**
      * Display the specified resource.
